@@ -5,7 +5,6 @@ import Movie from "./Movies/Movie";
 import MovieList from "./Movies/MovieList";
 
 const App = () => {
-  const [movies, setMovies] = useState();
   const [savedList, setSavedList] = useState([]);
 
   const addToSavedList = movie => {
@@ -15,10 +14,7 @@ const App = () => {
   return (
     <div>
       <Route exact path='/' render={props => <MovieList {...props} />} />
-      <Route
-        path='/movies/:id'
-        render={props => <Movie movie={props.movie} {...props} />}
-      />
+      <Route path='/movies/:id' render={props => <Movie {...props} />} />
       <SavedList list={savedList} />
     </div>
   );

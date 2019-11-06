@@ -11,7 +11,7 @@ const MovieList = props => {
         .get("http://localhost:5000/api/movies")
         .then(response => {
           setMovies(response.data);
-          console.log(response.data[0].id);
+          console.log(response.data);
         })
         .catch(error => {
           console.error("Server Error", error);
@@ -32,6 +32,8 @@ const MovieList = props => {
 
 function MovieDetails({ movie }) {
   const { title, director, metascore, stars, id } = movie;
+
+  console.log(movie);
   return (
     <Link to={`/movies/${id}`}>
       <div className='movie-card'>
